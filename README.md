@@ -4,7 +4,7 @@
 ### local
 ```
 yarn watch # build dist.js on localhost:1234
-yarn local # simulate widget at localhost:3000
+yarn local # simulate widget at localhost:5000
 ```
 
 ### colab

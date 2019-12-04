@@ -1,4 +1,4 @@
-# bricolage-workbench
+# colab-widget-dev
 
 ## dev
 ### local

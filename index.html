@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>bricolage-workbench</title>
+<body>
+  <div id="widget" style="border: 2px solid #333; padding: 5px; margin: 10px; height: 400px; width: 300px;">
+    Loading...
+  </div>
+  <script>
+    // Just show what it woudl call into Python.  Could mock.
+    function invokeFunction(...params) {
+      alert('invokeFunction called with: ' + JSON.stringify(params, null, 2));
+    }
+
+    // Load the script and call simulating the boostrap.
+    function loadScript() {
+      const scriptEl = document.createElement('script');
+      scriptEl.src = 'http://localhost:1234/dist.js';
+      scriptEl.onload = e => {
+        colabWidgetMain({
+          invokeFunction: invokeFunction,
+          el: document.querySelector('#widget'),
+          window: window
+        });
+      };
+      document.body.appendChild(scriptEl);
+    }
+
+    // Just so it's obvious there's another loading step in local dev
+    setTimeout(loadScript, 100);
+  </script>
+</body>
